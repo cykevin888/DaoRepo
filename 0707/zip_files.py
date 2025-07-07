@@ -4,6 +4,8 @@ import shutil
 import zipfile
 from concurrent.futures import ThreadPoolExecutor
 from queue import Queue
+from batch_planner import get_batch_info, get_next_batch
+import datetime
 
 MAX_ZIP_SIZE = 2 * 1024 * 1024 * 1024  # 2G
 MAX_ZIP_COUNT = 10
@@ -82,10 +84,20 @@ def get_batch_id():
     return now.strftime('%Y%m%d')
 
 def main():
-    batch_id = get_batch_id()
+    n_batches = 24  # 可根据需要调整
+    now = datetime.datetime.now()
+    date, batch_no, batch_id = get_batch_info(n_batches, now)
+    next_date, next_batch_no, next_batch_id = get_next_batch(date, batch_no, n_batches)
     output_folder = f"output_{batch_id}"
-    # 1. 文件分组
-    file_groups = group_files(SOURCE_FOLDER)
+    NEXT_BATCH_FOLDER = f"source_{next_batch_id}"
+    CUR_BATCH_FOLDER = f"source_{batch_id}"
+
+    # 1. 优先处理上次遗留
+    file_groups = []
+    if os.path.exists(CUR_BATCH_FOLDER):
+        file_groups += group_files(CUR_BATCH_FOLDER)
+    file_groups += group_files(SOURCE_FOLDER)
+
     # 2. 分批打包
     batches, extra_files = split_batches(file_groups, MAX_ZIP_SIZE, MAX_ZIP_COUNT)
     # 3. 线程池生产者
