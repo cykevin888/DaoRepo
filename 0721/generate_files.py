@@ -3,7 +3,6 @@ import os
 import random
 import json
 from datetime import datetime
-from tqdm import tqdm
 import multiprocessing
 import math
 
@@ -15,7 +14,7 @@ WAV_SIZE_RANGE_MB = (1, 7)
 # Set to 0 to automatically use (all available CPU cores - 1).
 NUM_PARALLEL_PROCESSES = 2
 # Directory to save the generated wav/json files
-OUTPUT_DIR = 'generated_files'
+OUTPUT_DIR = 'metadata'
 # Directory to save the report file
 REPORT_DIR = 'report'
 # Base name for the Excel report file
@@ -74,7 +73,7 @@ def main():
     print("Generating unique transaction IDs...")
     existing_ids = set()
     transaction_ids = []
-    for _ in tqdm(range(num_files_to_generate), desc="Generating IDs"):
+    for _ in range(num_files_to_generate):
         random_part = ''.join([str(random.randint(0, 9)) for _ in range(26)])
         transaction_id = f"{date_str}{random_part}"
         while transaction_id in existing_ids:
@@ -82,6 +81,7 @@ def main():
             transaction_id = f"{date_str}{random_part}"
         existing_ids.add(transaction_id)
         transaction_ids.append(transaction_id)
+    print("...Unique IDs generated.")
     
     # --- Determine the number of processes to use ---
     if NUM_PARALLEL_PROCESSES > 0:
@@ -95,10 +95,11 @@ def main():
     generated_ids = []
     # Create a pool of worker processes
     with multiprocessing.Pool(processes=cpu_count) as pool:
-        # Use imap_unordered to get results as they complete for a responsive progress bar
+        # Use imap_unordered to process the list of IDs
         results_iterator = pool.imap_unordered(create_file_pair, transaction_ids)
         
-        for result in tqdm(results_iterator, total=len(transaction_ids), desc="Generating files"):
+        # Iterate through the results without a progress bar
+        for result in results_iterator:
             if result:
                 generated_ids.append(result)
     
