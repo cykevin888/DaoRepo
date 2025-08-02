@@ -14,19 +14,38 @@ logger = logging.getLogger(__name__)
 
 
 class FileProcessor:
-    def __init__(self, remote_path=r"C:\temp\remote", max_retries=3):
+    def __init__(self, remote_paths=[r"C:\temp\remote1", r"C:\temp\remote2", r"C:\temp\remote3", r"C:\temp\remote4"], max_retries=3):
         self.processed_count = 0
         self.lock = threading.Lock()
-        self.remote_path = remote_path
+        self.remote_paths = remote_paths
         self.max_retries = max_retries
-        # 确保远程目录存在
-        os.makedirs(self.remote_path, exist_ok=True)
+        # 确保所有远程目录存在
+        for path in self.remote_paths:
+            os.makedirs(path, exist_ok=True)
+    
+    def get_remote_path(self, file_path, batch_no):
+        """根据batch_no和文件名中的n选择远程路径"""
+        filename = os.path.basename(file_path)
+        try:
+            # 提取batchid_n.zip中的n
+            n = int(filename.split('_')[1].split('.')[0])
+            # 先根据batch_no选择两个路径
+            if batch_no % 2 == 0:
+                selected_paths = [self.remote_paths[0], self.remote_paths[1]]
+            else:
+                selected_paths = [self.remote_paths[2], self.remote_paths[3]]
+            # 再根据n选择其中一个
+            return selected_paths[n % 2]
+        except:
+            # 如果无法解析，使用默认路径
+            return self.remote_paths[0]
 
-    def upload_file(self, file_path):
+    def upload_file(self, file_path, batch_no):
         """上传文件到远程路径"""
         try:
             filename = os.path.basename(file_path)
-            remote_file_path = os.path.join(self.remote_path, filename)
+            remote_path = self.get_remote_path(file_path, batch_no)
+            remote_file_path = os.path.join(remote_path, filename)
             shutil.copy2(file_path, remote_file_path)
             logger.info(f"文件上传成功: {file_path} -> {remote_file_path}")
             return True
@@ -34,32 +53,37 @@ class FileProcessor:
             logger.error(f"文件上传失败: {file_path}, 错误: {e}")
             return False
 
-    def process_compressed_file(self, file_path):
+    def process_compressed_file(self, file_path, batch_no=2):
         """
         处理压缩文件的示例函数
         这里可以替换为实际的处理逻辑
         """
         for attempt in range(self.max_retries):
             try:
-                logger.info(f"开始处理压缩文件 (尝试 {attempt + 1}/{self.max_retries}): {file_path}")
+                logger.info(f"开始处理压缩文件 (尝试 {attempt + 1}/{self.max_retries}): {file_path}, batch_no: {batch_no}")
+                
+                # 检查文件是否已存在于远程路径
+                filename = os.path.basename(file_path)
+                remote_path = self.get_remote_path(file_path, batch_no)
+                remote_file_path = os.path.join(remote_path, filename)
+                if os.path.exists(remote_file_path):
+                    logger.info(f"文件已存在于远程路径，跳过处理: {remote_file_path}")
+                    with self.lock:
+                        self.processed_count += 1
+                    return True
 
                 # 检查文件是否存在
                 if not os.path.exists(file_path):
                     raise Exception(f"文件不存在: {file_path}")
 
-                # 获取文件大小
-                file_size = os.path.getsize(file_path)
-                logger.info(f"文件大小: {file_size / (1024):.2f} KB")
 
                 # 上传文件到远程路径
-                if not self.upload_file(file_path):
+                if not self.upload_file(file_path, batch_no):
                     raise Exception("文件上传失败")
 
                 # 模拟处理时间
                 time.sleep(10)
 
-                # 这里可以添加实际的文件处理逻辑
-                # 例如：解压、分析、转换等
 
                 # 模拟处理结果
                 with self.lock:
@@ -83,12 +107,13 @@ class FileProcessor:
 
 
 class Consumer:
-    def __init__(self, processor=None, max_workers=4, remote_path=r"C:\temp\remote", max_retries=3):
-        self.processor = processor or FileProcessor(remote_path, max_retries)
+    def __init__(self, processor=None, max_workers=4, remote_paths=[r"C:\temp\remote1", r"C:\temp\remote2", r"C:\temp\remote3", r"C:\temp\remote4"], max_retries=3):
+        self.processor = processor or FileProcessor(remote_paths, max_retries)
         self.running = False
         self.thread = None
         self.max_workers = max_workers
         self.executor = None
+        self.batch_no = 0
 
     def start_consuming(self, compressed_files_queue, producer_completed_event):
         """
@@ -119,8 +144,9 @@ class Consumer:
                     logger.info(f"从队列获取到文件: {file_path}")
 
                     # 提交到线程池处理
-                    future = executor.submit(self.processor.process_compressed_file, file_path)
+                    future = executor.submit(self.processor.process_compressed_file, file_path, self.batch_no)
                     futures.append((future, file_path, compressed_files_queue))
+                    self.batch_no += 1
 
                 except Empty:
                     # 队列为空，检查生产者是否已完成
@@ -139,7 +165,7 @@ class Consumer:
                 try:
                     success = future.result()
                     if success:
-                        logger.info(f"文件处理成功: {file_path}")
+                        pass
                     else:
                         logger.warning(f"文件处理失败: {file_path}")
                     queue.task_done()

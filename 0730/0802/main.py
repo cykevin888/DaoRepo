@@ -12,7 +12,7 @@ def main():
     """主函数：集成生产者和消费者"""
     
     # 示例数据 - 你可以根据实际情况修改这些参数
-    batch_ids = ["batch_001", "batch_002"]
+    batch_ids = ["20250802_01", "20250802_02"]
     source_folders = [
         r"C:\Users\PC\AppData\Local\Temp\tmpl22x51pi\source1",
         r"C:\Users\PC\AppData\Local\Temp\tmpl22x51pi\source2",

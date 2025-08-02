@@ -10,9 +10,20 @@ import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
+def format_file_size(size_bytes):
+    """格式化文件大小显示"""
+    if size_bytes < 1024:
+        return f"{size_bytes} B"
+    elif size_bytes < 1024**2:
+        return f"{size_bytes / 1024:.2f} KB"
+    elif size_bytes < 1024**3:
+        return f"{size_bytes / (1024**2):.2f} MB"
+    else:
+        return f"{size_bytes / (1024**3):.2f} GB"
+
 class FileCompressor:
-    def __init__(self, max_size_kb=16):
-        self.max_size_bytes = max_size_kb * 1024  # 转换为字节
+    def __init__(self, max_size=16 ):
+        self.max_size_bytes = max_size * 1024**3
         self.compressed_files_queue = Queue()
         self.task_counter = 0
         self.total_tasks = 0
@@ -98,7 +109,7 @@ class FileCompressor:
                         # 将压缩文件路径放入队列
                         self.compressed_files_queue.put(current_zip_path)
                         compressed_size = os.path.getsize(current_zip_path)
-                        logger.info(f"完成压缩文件: {current_zip_path} (原始文件大小: {current_group_size / 1024:.2f} KB, 压缩后大小: {compressed_size / 1024:.2f} KB)")
+                        logger.info(f"完成压缩文件: {current_zip_path} (原始文件大小: {format_file_size(current_group_size)}, 压缩后大小: {format_file_size(compressed_size)})")
                         
 
                     
@@ -117,7 +128,7 @@ class FileCompressor:
                     logger.debug(f"添加文件到压缩包: {file_path}")
 
                 # 模拟
-                time.sleep(10)
+                # time.sleep(10)
                 
                 # 更新当前组大小
                 current_group_size += group_size
@@ -129,7 +140,7 @@ class FileCompressor:
                 current_zip.close()
                 self.compressed_files_queue.put(current_zip_path)
                 compressed_size = os.path.getsize(current_zip_path)
-                logger.info(f"完成压缩文件: {current_zip_path} (原始文件大小: {current_group_size / 1024:.2f} KB, 压缩后大小: {compressed_size / 1024:.2f} KB)")
+                logger.info(f"完成压缩文件: {current_zip_path} (原始文件大小: {format_file_size(current_group_size)}, 压缩后大小: {format_file_size(compressed_size)})")
 
             
             # 更新任务计数器
@@ -164,5 +175,5 @@ if __name__ == "__main__":
         "target3"
     ]
     
-    compressor = FileCompressor(max_size_kb=16)
+    compressor = FileCompressor(max_size=16)
     compressor.compress_files(batch_ids, source_folders, output_folders)
