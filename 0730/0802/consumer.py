@@ -6,6 +6,7 @@ import shutil
 from queue import Queue, Empty
 import threading
 from concurrent.futures import ThreadPoolExecutor
+import paramiko
 
 # 配置日志
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -14,14 +15,17 @@ logger = logging.getLogger(__name__)
 
 
 class FileProcessor:
-    def __init__(self, remote_paths=[r"C:\temp\remote1", r"C:\temp\remote2", r"C:\temp\remote3", r"C:\temp\remote4"], max_retries=3):
+    def __init__(self, remote_paths=["/tmp/remote1", "/tmp/remote2", "/tmp/remote3", "/tmp/remote4"], max_retries=3, sftp_config=None):
         self.processed_count = 0
         self.lock = threading.Lock()
         self.remote_paths = remote_paths
         self.max_retries = max_retries
-        # 确保所有远程目录存在
-        for path in self.remote_paths:
-            os.makedirs(path, exist_ok=True)
+        self.sftp_config = sftp_config or {
+            'hostname': 'localhost',
+            'username': 'user',
+            'password': 'password',
+            'port': 22
+        }
     
     def get_remote_path(self, file_path, batch_no):
         """根据batch_no和文件名中的n选择远程路径"""
@@ -41,16 +45,36 @@ class FileProcessor:
             return self.remote_paths[0]
 
     def upload_file(self, file_path, batch_no):
-        """上传文件到远程路径"""
+        """通过SFTP上传文件到远程路径"""
         try:
             filename = os.path.basename(file_path)
             remote_path = self.get_remote_path(file_path, batch_no)
-            remote_file_path = os.path.join(remote_path, filename)
-            shutil.copy2(file_path, remote_file_path)
-            logger.info(f"文件上传成功: {file_path} -> {remote_file_path}")
+            remote_file_path = f"{remote_path}/{filename}"
+            
+            # 创建SSH客户端
+            ssh = paramiko.SSHClient()
+            ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            ssh.connect(**self.sftp_config)
+            
+            # 创建SFTP客户端
+            sftp = ssh.open_sftp()
+            
+            # 检查远程目录是否存在，不存在则创建
+            try:
+                sftp.stat(remote_path)
+            except FileNotFoundError:
+                sftp.mkdir(remote_path)
+            
+            # 上传文件
+            sftp.put(file_path, remote_file_path)
+            
+            sftp.close()
+            ssh.close()
+            
+            logger.info(f"文件SFTP上传成功: {file_path} -> {remote_file_path}")
             return True
         except Exception as e:
-            logger.error(f"文件上传失败: {file_path}, 错误: {e}")
+            logger.error(f"文件SFTP上传失败: {file_path}, 错误: {e}")
             return False
 
     def process_compressed_file(self, file_path, batch_no=2):
@@ -65,12 +89,22 @@ class FileProcessor:
                 # 检查文件是否已存在于远程路径
                 filename = os.path.basename(file_path)
                 remote_path = self.get_remote_path(file_path, batch_no)
-                remote_file_path = os.path.join(remote_path, filename)
-                if os.path.exists(remote_file_path):
+                remote_file_path = f"{remote_path}/{filename}"
+                
+                try:
+                    ssh = paramiko.SSHClient()
+                    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+                    ssh.connect(**self.sftp_config)
+                    sftp = ssh.open_sftp()
+                    sftp.stat(remote_file_path)
+                    sftp.close()
+                    ssh.close()
                     logger.info(f"文件已存在于远程路径，跳过处理: {remote_file_path}")
                     with self.lock:
                         self.processed_count += 1
                     return True
+                except FileNotFoundError:
+                    pass
 
                 # 检查文件是否存在
                 if not os.path.exists(file_path):
@@ -107,8 +141,8 @@ class FileProcessor:
 
 
 class Consumer:
-    def __init__(self, processor=None, max_workers=4, remote_paths=[r"C:\temp\remote1", r"C:\temp\remote2", r"C:\temp\remote3", r"C:\temp\remote4"], max_retries=3):
-        self.processor = processor or FileProcessor(remote_paths, max_retries)
+    def __init__(self, processor=None, max_workers=4, remote_paths=["/tmp/remote1", "/tmp/remote2", "/tmp/remote3", "/tmp/remote4"], max_retries=3, sftp_config=None):
+        self.processor = processor or FileProcessor(remote_paths, max_retries, sftp_config)
         self.running = False
         self.thread = None
         self.max_workers = max_workers
