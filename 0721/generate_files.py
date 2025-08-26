@@ -5,11 +5,12 @@ import json
 from datetime import datetime
 import multiprocessing
 import math
+import shutil
 
 # --- Configuration Parameters ---
 TOTAL_SIZE_LIMIT_GB = 0.01
-# WAV file size range in Megabytes (MB)
-WAV_SIZE_RANGE_MB = (1, 7)
+# 源 WAV 文件路径（将不断复制该文件作为输出）
+SOURCE_WAV_FILE = 'template.wav'
 # Number of parallel processes to use for file generation.
 # Set to 0 to automatically use (all available CPU cores - 1).
 NUM_PARALLEL_PROCESSES = 2
@@ -39,12 +40,9 @@ def create_file_pair(transaction_id):
     except IOError:
         return None # Return None on failure
 
-    # 2. Create WAV file
-    wav_size_mb = random.uniform(WAV_SIZE_RANGE_MB[0], WAV_SIZE_RANGE_MB[1])
-    size_bytes = int(wav_size_mb * 1024 * 1024)
+    # 2. Create WAV file by copying from SOURCE_WAV_FILE
     try:
-        with open(wav_filepath, 'wb') as f:
-            f.write(os.urandom(size_bytes))
+        shutil.copyfile(SOURCE_WAV_FILE, wav_filepath)
     except IOError:
         # Clean up the created JSON file if WAV creation fails
         os.remove(json_filepath)
@@ -62,10 +60,24 @@ def main():
     
     date_str = datetime.now().strftime('%Y%m%d')
     
+    # 校验源 WAV 文件存在
+    if not os.path.exists(SOURCE_WAV_FILE):
+        print(f"源 WAV 文件不存在: '{SOURCE_WAV_FILE}'")
+        return
+
     # --- Pre-calculate the number of files to generate ---
-    avg_wav_size_mb = sum(WAV_SIZE_RANGE_MB) / 2
-    avg_wav_size_gb = avg_wav_size_mb / 1024
-    num_files_to_generate = math.ceil(TOTAL_SIZE_LIMIT_GB / avg_wav_size_gb)
+    try:
+        source_wav_size_bytes = os.path.getsize(SOURCE_WAV_FILE)
+    except OSError as e:
+        print(f"无法获取源 WAV 文件大小: {e}")
+        return
+
+    if source_wav_size_bytes <= 0:
+        print("源 WAV 文件大小无效（<=0）。")
+        return
+
+    source_wav_size_gb = source_wav_size_bytes / (1024 * 1024 * 1024)
+    num_files_to_generate = max(1, math.ceil(TOTAL_SIZE_LIMIT_GB / source_wav_size_gb))
 
     print(f"Estimated number of files to generate: {num_files_to_generate}")
 
