@@ -1,0 +1,56 @@
+Question
+当前选择的编程语言是Java 11。要求提交完全有效的代码,而不是部分正确而有效的代 码。一旦
+提交,便无法再检查该题。可使用system.out.println调试代码。在有语法/运行 时错误时,system.out.println()可能不起作用。所使用的Java
+11版本是11.0.2。 Mr. Woods, an electrician has made some faulty connections of eight street
+lights in Timberland city. The connections are such that if the street lights adjacent
+to a particular light are both ON (represented as 1) or are both OFF (represented as 0),
+then that street light goes OFF the next night. Otherwise, it remains ON the next night.
+The two street lights at the end of the road have only a single adjacent street light,
+so the other adjacent light can be assumed to be always OFF. The state of the lights on
+a particular day is considered for the next day and not for the same day. Due to this
+fault, the people of the city are facing difficulty in driving on the road at night. So,
+they have filed a complaint about this to the Head of the Federal Highway
+Administration. Based on this complaint the head has asked for the report of the state
+of street lights after M days. Write an algorithm to output the state of the street
+lights after the given M days.
+
+Input
+The first line of input consists of an integer - currentState_size, representing the
+number of street lights (N). The next line consists of N space-separated integers -
+currentState, representing the current state of the street lights (i.e., either 0 or 1).
+The last line consists of an integer - days, representing the number of days (M).
+
+Output
+Print eight space-separated integers representing the state of the street lights after M
+days.
+
+Constraints
+1 s days ≤ 106
+
+Example Input:
+8
+11101111
+2
+Output: 00000110
+
+Explanation:
+Adjacent to the street light at position 0 are street lights 0 (assumption) and 1. So on
+the next day, it will be 1.
+
+----------------------------------------
+中文翻译
+----------------------------------------
+
+题目描述：
+有一排 8 盏路灯。某盏灯在下一天的状态只由它左右相邻两盏灯决定：
+如果两侧都亮或都灭，则该灯下一天熄灭；否则保持点亮。
+两端路灯缺失的一侧视为始终熄灭。
+给定当前状态和经过的天数 M，求 M 天后的路灯状态。
+
+输入：
+第一行是路灯数量 N。
+第二行是当前状态（0 或 1）。
+最后一行是天数 M。
+
+输出：
+输出 M 天后的路灯状态。

@@ -1,0 +1,59 @@
+Question
+The current selected programming language is Java 11. We emphasize the submission of a
+fully working code over partially correct but efficient code. Once submitted, you cannot
+review this problem again. You can use system.out.printin to debug your code. The
+system.out.println() may not work in case of syntax/runtime error. The version of Java
+11 being used is 11.0.2. A University has invited N alumni for a dinner. The dinner
+table has a circular shape. Each alumnus is assigned an invitation ID from 0 to N-1.
+Each alumnus likes exactly one fellow alumnus and will attend the dinner only if he/she
+can be seated next to the person he/she likes. Write an algorithm to find the IDs of the
+alumni in a lexicographical order so that maximum number of alumni attend the dinner. If
+more than one such seating arrangement exists, then output the one that is
+lexicographically smaller.
+
+Input
+The first line of the input consists of an integer num, representing the number of
+alumni (N). The second line consists of N space-separated integers, alumnilD[0],
+alumnilD[1]....... alumnilD[N-1] representing the ID of the person whom the ith alumnus
+likes.
+
+Output
+Print space-separated integers representing the IDs of the alumni who will attend the
+dinner.
+
+Note
+One alumnus can be liked by multiple alumni.
+
+Constraints
+1s nums 105
+0s i< num
+
+Example
+
+Input:
+4
+2341
+Output: 1234
+
+Explanation:
+The first alumnus likes the person whose ID is 2. The second alumnus likes the person
+whose ID is 3. The third alumnus likes the person whose ID is 4. The fourth alumnus
+likes the person whose ID is 1. A maximum of 4 alumni can be seated around the circular
+table in the following manner: 1-2-3-4
+
+----------------------------------------
+中文翻译
+----------------------------------------
+
+题目描述：
+N 位校友围坐在圆桌旁，每位校友都恰好喜欢一位校友，
+只有当自己旁边坐着喜欢的人时才愿意参加晚宴。
+请找出一种座位安排，使参加人数最多。
+如果有多种最优方案，输出字典序更小的一组校友编号。
+
+输入：
+第一行是校友人数 N。
+第二行是每位校友喜欢的对象编号。
+
+输出：
+输出按字典序排列的参加晚宴的校友编号。

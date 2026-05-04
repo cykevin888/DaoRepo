@@ -1,0 +1,51 @@
+Question
+The current selected programming language is Java. We emphasize the submission of a
+fully working code over partially correct but efficient code. Once submitted, you cannot
+review this problem again. You can use System.out.println() to debug your code. The
+System.out.println() may not work in case of syntax/runtime error. The version of JDK
+being used is 1.8. Note: The main class name must be "Solution". You are given a list of
+integers of size N. Write an algorithm to sort the first K elements (from list[0] to
+list[K-1]) of the list in ascending order and the remaining (list[K] to list[N-1])
+elements in descending order.
+
+Input
+The first line of the input consists of an integer- inputList_size, representing the
+number of elements in the list (N). The next line consists of N space-separated integers
+representing the elements of the list. The last line consists of an integer- num,
+representing the number of elements to be sorted in ascending order (K).
+
+Output
+Print N space-separated integers representing the sorted list.
+
+Constraints
+nums inputList_size
+
+Example
+
+Input:
+8
+11 75 10 46 23 168
+3
+
+Output:
+57 11 46 23 16 108
+
+Explanation:
+The first three elements must be arranged in increasing order and the remaining elements
+in decreasing order. So, the final list is [5, 7, 11, 46, 23, 16, 10, 8].
+
+----------------------------------------
+中文翻译
+----------------------------------------
+
+题目描述：
+给定一个长度为 N 的整数列表和整数 K。
+将前 K 个元素按升序排列，将剩余元素按降序排列，输出最终结果。
+
+输入：
+第一行是列表长度 N。
+第二行是 N 个整数。
+最后一行是 K。
+
+输出：
+输出重排后的列表。

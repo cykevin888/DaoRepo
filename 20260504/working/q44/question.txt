@@ -1,0 +1,60 @@
+Question
+.
+当前选择的编程语言是Java。注意要提交完全正确的代码,而不是部分正确但有效的代码。提交后,便无法再检查该 X System.out.println().,
+System.out.println() 的JDK版本是1.8 In a city there are N houses. Noddy is looking for a
+plot of land in the city on which to build his house. He wants to buy the largest plot
+of land that will allow him to build the largest possible house. All the houses in the
+city lie in a straight line and all of them have a house number and a second number
+indicating the position of the hous from the entry point in the city. Noddy wants to
+find the houses between which he can build the largest possible
+house.
+Write an algorithm to help Noddy find the house numbers between which he can build his
+largest possible
+house.
+
+Input
+The first line of the input consists of two space-separated integers - num and val,
+representing the number of houses (N) and the value val (where val is always equal to
+two representing the house number (H) and the position of houses (P) for N houses). The
+next N lines consist of two space-separated integers representing the house number (H)
+and the position (P), respectively.
+
+Output
+Print two space-separated integers representing the house numbers in ascending order
+between which the largest plot is available..
+
+Constraints
+2s nums 106
+1s H, s 100
+0≤ P<106
+Osi<num
+
+Note
+No two houses have the same position. In the case of multiple possibilities, print the
+one with the least distance from the reference point.
+
+Example
+
+Input:
+52
+37
+19
+20
+515
+430
+
+----------------------------------------
+中文翻译
+----------------------------------------
+
+题目描述：
+给定若干房屋的编号和它们在直线上的位置，找出相邻两栋房屋之间最大的空地，
+并输出这两栋房屋的编号（按升序输出）。
+如果有多处空地大小相同，输出离城市入口更近的那一组。
+
+输入：
+第一行给出房屋数量 N 以及固定值 2。
+接下来 N 行，每行给出房屋编号 H 和位置 P。
+
+输出：
+输出两个整数，表示最大空地两侧的房屋编号。

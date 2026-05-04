@@ -1,0 +1,37 @@
+Question
+The manager of a supermarket wishes to hold an event at which he will distribute gift
+baskets to lucky customers. Each gift basket contains a pair of products. Each basket
+contains different product pairs, but the overall value of the baskets may be the same.
+There are N types of products and each product has a price. The gift baskets will
+awarded to the customers that pick a product pair that has a difference in price equal
+to the given integer value K. Write an algorithm to help the Manager find the total
+numbers of lucky customers who will win a gift basket.
+
+Input
+The first line of the input consists of an integer-list_input_size, representing the
+types of
+products(N).
+The second line consists of N space- separated integers - list_input[0],
+list_input[1]........, list_input[N-1], representing the price of the products. The last
+line consists of an integer- K_input, representing the given value K.
+
+Output
+Print an integer representing the total number of lucky customers who will win a gift
+basket.
+
+----------------------------------------
+中文翻译
+----------------------------------------
+
+题目描述：
+超市有 N 种商品，每种商品有一个价格。
+顾客选择一对商品，如果这两个商品的价格差恰好等于给定值 K，
+就能获得一个礼品篮。请统计一共有多少对满足条件的商品对。
+
+输入：
+第一行是商品数量 N。
+第二行是 N 个商品价格。
+最后一行是差值 K。
+
+输出：
+输出满足价格差为 K 的商品对数量。

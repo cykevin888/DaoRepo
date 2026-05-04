@@ -1,0 +1,62 @@
+Question
+The current selected programming language is Swift. We emphasize the submission of a
+fully working code over partially correct but efficient code. Once submitted, you cannot
+review this problem again. You can use print() to debug your code. The printo may not
+work in case of syntax/runtime error. The version of Swift being used is 4.0.3. A
+virtual memory management system in an operating system uses First-In-First-Out (FIFO)
+cache. When a requested memory page is not in the cache and the cache is full, the page
+that has been in the cache for the longest duration is removed to make room for the
+requested page. If the cache is not full, then the requested page can simply be added to
+the cache. A given page should occur once in the cache at most. Given the maximum size
+of the cache and an array of page requests, calculate the number of cache misses. A
+cache miss occurs when a page is requested but is not found in the cache. Initially, the
+cache is empty.
+
+Input
+The first line of the input consists of an positive integer- page requests size,
+representing the total number of pages (N). The second line contains N space-separated
+positive integers - page requests[0]1 page requests[1]... page requests[N- 11,
+representing the page requests for N pages. The last line consists of an integer-
+max_cache_size, representing the size of the cache.
+
+Output
+Print an integer representing the number of cache misses.
+
+Note
+Assume that the array page requests contains pages numbered in the range 1-50. A page at
+index i in page requests is requested before a page at index 1+1.
+
+Example Input:
+6
+121312
+2
+
+Output:
+5
+
+Explanation:
+Cache state as requests come in ordered longest-time-in-cache to shortest-time-in-cache:
+12
+12
+23
+314-
+12-
+Asterisk() represents a cache miss, So the total number of cache misses is 5.
+
+----------------------------------------
+中文翻译
+----------------------------------------
+
+题目描述：
+操作系统使用 FIFO（先进先出）缓存。
+当请求的页面不在缓存中时，如果缓存已满，就移除最早进入缓存的页面；
+如果缓存未满，则直接加入。一个页面在缓存中最多出现一次。
+请计算给定页面请求序列的缓存未命中次数。
+
+输入：
+第一行是页面请求总数 N。
+第二行是 N 个页面请求。
+最后一行是缓存大小。
+
+输出：
+输出缓存未命中的次数。

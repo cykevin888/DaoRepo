@@ -1,0 +1,59 @@
+
+Problem Statement:
+Write an algorithm to find the number of occurrences
+of digit needle in a given positive number haystack.
+
+Input:
+The first line contains an integer needle,
+representing a single digit.
+The second line contains an integer haystack,
+representing the positive number.
+
+Output:
+Print an integer representing the number of times
+needle appears in haystack.
+
+Constraints:
+0 <= needle <= 9
+0 <= haystack <= 99999999
+
+Example:
+Input:
+2
+123228
+
+Output:
+3
+
+Explanation:
+Digit 2 occurs 3 times in the haystack.
+
+----------------------------------------
+中文翻译
+----------------------------------------
+
+题目描述：
+给定一个数字 needle（0 到 9）和一个正整数 haystack，
+请统计 needle 在 haystack 中出现的次数。
+
+输入：
+第一行输入整数 needle，表示要统计的数字。
+第二行输入整数 haystack，表示被统计的正整数。
+
+输出：
+输出一个整数，表示 needle 在 haystack 中出现的次数。
+
+约束：
+0 <= needle <= 9
+0 <= haystack <= 99999999
+
+示例：
+输入：
+2
+123228
+
+输出：
+3
+
+说明：
+数字 2 在 123228 中一共出现了 3 次。

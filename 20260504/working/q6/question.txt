@@ -1,0 +1,70 @@
+Question (English)
+
+The manager of a supermarket wants to hold an event
+where gift baskets are distributed to lucky customers.
+
+Each gift basket contains a pair of products.
+Different baskets may contain different product pairs,
+and multiple pairs can have the same total value.
+
+There are N product types, and each product has a price.
+A customer is considered lucky if the selected product
+pair has an absolute price difference equal to K.
+
+Write an algorithm to find the total number of lucky
+customers (i.e., valid product pairs).
+
+Input:
+The first line contains an integer list_input_size,
+representing the number of product types (N).
+
+The second line contains N space-separated integers:
+list_input[0], list_input[1], ..., list_input[N - 1],
+representing product prices.
+
+The last line contains an integer K_input,
+representing the given value K.
+
+Output:
+Print an integer representing the total number
+of lucky customers who will win a gift basket.
+
+Constraints:
+The original text appears truncated at "Const".
+Please refer to the official problem statement
+for exact numeric constraints.
+
+----------------------------------------
+中文翻译
+----------------------------------------
+
+某超市经理准备举办活动，向幸运顾客发放礼品篮。
+
+每个礼品篮包含一对商品。
+不同礼品篮中的商品对可以不同，
+且不同商品对的总价可以相同。
+
+现有 N 种商品，每种商品都有对应价格。
+如果顾客选出的商品对满足“价格差的绝对值等于 K”，
+则该顾客可获奖。
+
+请设计算法，计算可获奖顾客总数
+（也就是满足条件的商品对数量）。
+
+输入：
+第一行输入整数 `list_input_size`，
+表示商品种类数 N。
+
+第二行输入 N 个空格分隔的整数：
+`list_input[0], list_input[1], ..., list_input[N-1]`，
+表示各商品价格。
+
+最后一行输入整数 `K_input`，
+表示给定差值 K。
+
+输出：
+输出一个整数，表示可获得礼品篮的顾客总数。
+
+约束：
+原题该部分在 OCR 文本中被截断（仅剩 "Const"），
+具体数值范围请以平台官方题面为准。

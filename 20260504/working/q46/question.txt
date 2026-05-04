@@ -1,0 +1,56 @@
+Question
+The current selected programming language is Python3.12. We emphasize the submission of
+a fully working code aver partially correct but efficient code. Once submitted, you
+cannot review this problemm again. You can use print to debug your code. The print may
+not work in case of syntax/runtime error. The version of Python3.12 being used is 3.12.
+A digital machine generates binary data which consists of a string of Os and 1s. A
+maximum signal M, in the data consists of the maximum number of either 15 or Os
+appearing consecutively in the data but M can't be at the beginning or end of the
+string. Design a way to find the length of the maximum signal.
+
+Input
+The first line of the input consists of an integer N, representing the length of the
+binary string. The second line consists of a string of length N consisting of Os and 1s
+only.
+
+Output
+Print an integer representing the length of the maximum signal.
+
+Example
+Example1:
+
+Input:
+6
+101000
+
+Output:
+
+Explanation:
+For 101000, M can be 0 at second index or 1 at third index so in both the cases
+maxlength=1.
+Example2:
+
+Input:
+9
+101111110
+Output: 6
+
+Explanation:
+For 101111110, M-111111 so maxlength - 6.
+
+----------------------------------------
+中文翻译
+----------------------------------------
+
+题目描述：
+给定一个只包含 0 和 1 的二进制字符串。
+“最大信号”指的是最长的一段连续相同字符（全 0 或全 1），
+但这段连续字符不能位于字符串的开头或结尾。
+请输出这个最大信号的长度。
+
+输入：
+第一行是字符串长度 N。
+第二行是长度为 N 的二进制字符串。
+
+输出：
+输出最大信号长度。

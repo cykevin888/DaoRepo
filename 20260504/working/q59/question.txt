@@ -1,0 +1,47 @@
+Question
+The current selected programming language is Java. We emphasize the submission of a
+fully working code over partially correct but efficient code. Once submitted, you cannot
+review this problem again. You can use System.out.printing) to debug your code. The
+System.out.println() may not work in case of syntax/runtime error. The version of JDK
+being used is 1.8. Note: The main class name must be "Solution". You are playing an
+online game. In the game, a list of N numbers is given. The player has to arrange the
+numbers so that all the odd numbers of the list come after the even numbers. Write an
+algorithm to arrange the given list such that all the odd numbers of the list come after
+the even numbers.
+
+Input
+The first line of the input consists of an integer num representing the size of the list
+(N). The second line of the input consists of N space-separated integers representing
+the values of the list.
+
+Output
+Print N space-separated integers such that all the odd numbers of the list come after
+the even numbers.
+
+Note
+The relative order of odd numbers and the relative order of even numbers in the output
+should be same as given in input.
+
+Example Input
+10 98 3 33 12 22 21 11
+
+Output:
+10 98 12 22 3 33 21 11.
+
+Explanation:
+All the even numbers are placed before all the odd numbers.
+
+----------------------------------------
+中文翻译
+----------------------------------------
+
+题目描述：
+给定一个整数列表，请重新排列，使所有偶数都出现在所有奇数之前。
+同时要求保持原序列中偶数之间的相对顺序不变，奇数之间的相对顺序也不变。
+
+输入：
+第一行是列表长度 N。
+第二行是 N 个整数。
+
+输出：
+输出重新排列后的列表。

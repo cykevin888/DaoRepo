@@ -1,0 +1,39 @@
+Question
+The current selected programming language is Python3.12. We emphasize the submission of
+a fully working code over partially correct but efficient code. Once submitted, you
+cannot review this problem again. You can use print to debug your code. The print may
+not work in case of syntax/runtime error. The version of Python3.12 being used is 3.12.
+A transportation company has begun service in a new city. Their specialty is affordable
+fares. They have identified some pickup locations in the crowded areas of the city.
+Servicing these locations will yield them the most customers. To maximize their
+profitability, they wish to determine the minimum number of straight-line routes that
+will connect all the pickup locations. Write an algorithm to calculate the minimum
+number of straight-line routes that will cover all the pickup locations.
+
+Input
+The first line of the input consists of an integer N representing the number of pickup
+locations. The next N line of the input consists of two space-separated integers
+representing the x and y coordinates of the pickup locations.
+
+Output
+Print an integer representing the minimum number of straight-line routes that will cover
+all the pickup locations.
+
+Constraints
+0≤ N ≤103 -103 <xy≤ 103; where x,y are the coordinates of the pickup locations.
+
+----------------------------------------
+中文翻译
+----------------------------------------
+
+题目描述：
+给定平面上的 N 个接客点坐标。
+运输公司希望用尽可能少的直线线路覆盖所有接客点。
+请计算覆盖所有点所需的最少直线条数。
+
+输入：
+第一行是点数 N。
+接下来 N 行每行给出一个点的 x、y 坐标。
+
+输出：
+输出最少需要的直线数量。

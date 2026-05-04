@@ -1,0 +1,64 @@
+Problem Statement:
+Bob wants to send a secret code S to his boss.
+He encrypts it using two keys: N and M.
+
+Based on the OCR text and sample, the encryption formula
+is interpreted as:
+(((S^N % 10) ^ M) % 1000000007)
+
+Write an algorithm to compute the encrypted code.
+
+Input:
+The first line contains an integer secretCode,
+representing S.
+The second line contains an integer firstKey,
+representing N.
+The third line contains an integer secondKey,
+representing M.
+
+Output:
+Print an integer representing Bob's encrypted code.
+
+Constraints:
+1 <= secretCode <= 10^9
+0 <= firstKey, secondKey <= 1000000007
+
+Example:
+Input:
+2
+3
+4
+
+ocr结果不全，不参考sample
+
+----------------------------------------
+中文翻译
+----------------------------------------
+题目描述：
+Bob 需要把一个秘密码 `S` 发送给老板。
+他使用两个密钥 `N` 和 `M` 对其加密。
+
+根据 OCR 原文和示例，公式可理解为：
+(((S^N % 10) ^ M) % 1000000007)
+
+请你计算加密后的结果。
+
+输入：
+第一行输入整数 `secretCode`，表示 `S`。
+第二行输入整数 `firstKey`，表示 `N`。
+第三行输入整数 `secondKey`，表示 `M`。
+
+输出：
+输出一个整数，表示加密后的结果。
+
+约束：
+`1 <= secretCode <= 10^9`
+`0 <= firstKey, secondKey <= 1000000007`
+
+示例：
+输入：
+2
+3
+4
+
+ ocr结果不全，不参考示例

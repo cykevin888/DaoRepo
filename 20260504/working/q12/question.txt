@@ -1,0 +1,112 @@
+Question
+
+The city bus stations are located at equal distances (unit distance)
+from each other along a straight road.
+
+Each station has a unique station ID.
+
+The buses do not travel to all of the bus stations. The highway
+administration needs to determine the total distance that the buses
+cover.
+
+Given the IDs of the bus stations that have a bus operating between
+them, write an algorithm to help the administration find the total
+distance covered by all the city buses.
+
+Input
+
+1. The first line of the input consists of two space-separated integers
+   `num` and `constM`, representing the number of buses (`N`).
+   `constM` is always `2`.
+
+2. The next `N` lines each consist of `constM` space-separated integers:
+   `busStop1` and `busStop2`, representing the IDs of the bus stations
+   that have a bus operating between them.
+
+Output
+
+Print an integer representing the distance covered by the buses.
+
+Constraints
+
+- `0 <= num <= 10^5`
+- `1 <= busStop1 < busStop2 <= 10^6`
+
+Example
+
+Input:
+3 2
+2 4
+3 5
+6 7
+
+Output:
+4
+
+Explanation:
+
+The covered road segments are:
+
+- bus `2 -> 4` covers distance `2`
+- bus `3 -> 5` overlaps partially and adds only `1` new unit
+- bus `6 -> 7` adds `1` more unit
+
+So the total covered distance is:
+`4`
+
+The stations on the road can be viewed as:
+`1 - 2 - 3 - 4 - 5 - 6 - 7`
+
+Chinese Translation
+
+题目
+
+城市公交站点位于一条笔直道路上，并且相邻站点之间的距离都相等
+（单位距离为 `1`）。
+
+每个站点都有唯一的站点编号。
+
+公交车并不会覆盖所有站点。公路管理部门需要计算所有公交线路总共覆盖
+了多长的距离。
+
+给定若干对站点编号，每一对表示有一辆公交车在这两个站点之间运行。
+请设计算法，求所有公交车一共覆盖的总距离。
+
+输入
+
+1. 第一行输入两个空格分隔的整数 `num` 和 `constM`，
+   其中 `num` 表示公交线路的数量 `N`，`constM` 恒为 `2`。
+
+2. 接下来的 `N` 行中，每行包含两个空格分隔的整数：
+   `busStop1` 和 `busStop2`，表示一辆公交车运行的两个站点编号。
+
+输出
+
+输出一个整数，表示所有公交车覆盖的总距离。
+
+约束
+
+- `0 <= num <= 10^5`
+- `1 <= busStop1 < busStop2 <= 10^6`
+
+样例
+
+输入：
+3 2
+2 4
+3 5
+6 7
+
+输出：
+4
+
+解释：
+
+把每辆公交车看成覆盖道路上的一个区间：
+
+- `2 -> 4` 覆盖长度 `2`
+- `3 -> 5` 与前一个区间有重叠，因此只新增 `1` 的长度
+- `6 -> 7` 再新增 `1` 的长度
+
+所以总覆盖距离为：
+`4`

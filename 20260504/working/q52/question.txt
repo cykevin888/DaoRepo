@@ -1,0 +1,40 @@
+Question
+当前选择的编程语言是JavaScript。要求提交完整代码,而不仅是部分有效代 码。一旦点击交卷测试,您将无法再次查看任何问题。可以使用 console.log 调
+试代码。我们使用 JavaScript(V8 Engine)评估您的代码。 You are given two lists of different lengths of
+positive integers. Write an algorithm to count the number of elements that are not
+common to each list.
+
+Input
+The first line of the input consists of two space-separated integers - length1 and
+length2, an integer representing the number of elements in the first list (N) and the
+number of elements in the second list (M), respectively. The second line consists of N
+space-separated integers representing the first list of positive integers. The third
+line consists of M space-separated integers representing the second list of positive
+integers.
+
+Output
+Print a positive integer representing the count of elements that are not common to both
+the lists of integers.
+
+Example
+
+Input:
+11 10
+112345576910
+11 12 13 4567 18 19 20
+Output: 12
+
+----------------------------------------
+中文翻译
+----------------------------------------
+
+题目描述：
+给定两个长度不同的正整数列表，统计两个列表中“不共同出现”的元素总数。
+
+输入：
+第一行给出两个列表的长度 N 和 M。
+第二行给出第一个列表。
+第三行给出第二个列表。
+
+输出：
+输出一个整数，表示两个列表中非公共元素的个数。

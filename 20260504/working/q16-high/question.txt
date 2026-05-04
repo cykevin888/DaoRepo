@@ -1,0 +1,48 @@
+Question
+The current selected programming language is Swift. We emphasize the submission of a
+fully working code over partially correct but efficient code. Once submitted, you cannot
+review this problem again. You can use print() to debug your code. The print() may not
+work in case of syntax/runtime error. The version of Swift being used is 4.0.3. You are
+given a list of integers and an integer K. Write an algorithm to find the number of
+elements in the list that are strictly less than K.
+
+Input
+The first line of the input consists of an integer - element_size, representing the
+number of elements in the list (N). The second line consists of N space-separated
+integers - element[1], element[2]............ element[N], representing the list of
+integers. The last line consists of an integer- num, representing the integer to be
+compared (K).
+
+Output
+Print a positive integer representing the number of elements in the list that are
+strictly less than num.
+
+Constraints
+-109s nums 109
+-109 s element[1], element[2]......... element[N] s 109
+
+Example Input:
+7
+1745632
+5
+
+Output:
+4
+
+Explanation:
+The numbers that are less than 5 are 1,2,3,4. So, the output is 4.
+
+----------------------------------------
+中文翻译
+----------------------------------------
+
+题目描述：
+给定一个整数列表和一个整数 K，统计列表中严格小于 K 的元素个数。
+
+输入：
+第一行表示元素个数 N。
+第二行给出 N 个整数。
+最后一行给出比较值 K。
+
+输出：
+输出一个整数，表示严格小于 K 的元素数量。

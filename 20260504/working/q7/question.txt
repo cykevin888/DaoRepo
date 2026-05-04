@@ -1,0 +1,72 @@
+Problem Statement:
+You are given two lists of positive integers
+with different lengths.
+Write an algorithm to count how many elements
+are not common between the two lists.
+
+Input:
+The first line contains an integer listinput1_size,
+representing the number of elements in the first list (N).
+The second line contains N space-separated integers,
+representing the first list.
+
+The third line contains an integer listinput2_size,
+representing the number of elements in the second list (M).
+The fourth line contains M space-separated integers,
+representing the second list.
+
+Output:
+Print a positive integer representing the total count
+of elements that are not common to both lists.
+
+Example:
+Input:
+11
+1 1 2 3 4 5 5 7 6 9 10
+10
+11 12 13 4 5 6 7 18 19 20
+
+Output:
+12
+
+Explanation:
+The elements not common to both lists are:
+[1, 1, 2, 3, 9, 10, 11, 12, 13, 18, 19, 20]
+
+So, the output is 12.
+
+
+
+----------------------------------------
+中文翻译
+----------------------------------------
+
+题目描述：
+给定两个长度不同的正整数列表，
+请统计两个列表中“不共同出现”的元素总个数。
+
+输入：
+第一行是整数 `listinput1_size`，表示第一个列表长度 N。
+第二行是 N 个空格分隔的整数，表示第一个列表。
+第三行是整数 `listinput2_size`，表示第二个列表长度 M。
+第四行是 M 个空格分隔的整数，表示第二个列表。
+
+输出：
+输出一个正整数，表示两个列表中不共同元素的总数。
+
+示例：
+输入：
+11
+1 1 2 3 4 5 5 7 6 9 10
+10
+11 12 13 4 5 6 7 18 19 20
+
+输出：
+12
+
+说明：
+两个列表中不共同出现的元素为：
+[1, 1, 2, 3, 9, 10, 11, 12, 13, 18, 19, 20]
+因此输出 12。
+
+

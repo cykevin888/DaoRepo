@@ -1,0 +1,40 @@
+Question
+The current selected programming language is Python3.12. We emphasize the submission of
+a fully working code over partially correct but efficient code. Once submitted, you
+cannot review this problem again. You can use print to debug your code. The print may
+not work in case of syntax/runtime error. The version of Python3.12 being used is 3.12.
+Design a way to sort the list of positive integers in the descending order according to
+frequency of the elements. The elements with higher frequency come before those with
+lower frequency. Elements with the same frequency come in the same order as they appear
+in the given list.
+
+Input
+The first line of the input consists of an integer num, representing the number of
+elements in the list(N). The second line consists of N space-separated integers
+representing the elements in the list.
+
+Output
+Print N space-separated integers representing the elements of the list sorted according
+to the frequency of elements present in the given list.
+
+Example Input:
+19
+12233344555566678910
+
+Output:
+55553336662244178910
+
+----------------------------------------
+中文翻译
+----------------------------------------
+
+题目描述：
+将正整数列表按照“出现频率从高到低”排序。
+若两个元素出现频率相同，则保持它们在原列表中第一次出现的先后顺序。
+
+输入：
+第一行给出元素个数 N。
+第二行给出 N 个正整数。
+
+输出：
+输出按频率规则排序后的序列。

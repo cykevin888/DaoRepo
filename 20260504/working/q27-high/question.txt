@@ -1,0 +1,50 @@
+Question
+当前选择的编程语言是C99。要求提交完整代码,而不仅是部分有效代码。一旦点击交卷,您将无法再次查看任何| 问题。所用的GCC版本是5.4.0 Shortest Job
+First (SJF) is a system for scheduling task requests. Each task request is characterized
+by its request time (i.e., the time at which the task is submitted to the system) and
+its duration (i.e., the time needed to complete the task). When the SJF system completes
+a task, it selects the task with the smallest duration to execute next. If multiple
+tasks have the same smallest duration, SJF selects the task with the earliest request
+time. The waiting time for a task is the difference between the request time and the
+actual start time (i.e., the time that it spends waiting for the system to execute it).
+You may assume that the tasks arrive in such frequency that the system executes tasks
+constantly and is never idle. Given a list of request times and duration times,
+calculate the average task waiting time when scheduled using the Shortest Job First
+(SJF) algorithm.
+
+Input
+The first line of input consists of a positive integer N, representing the number of
+tasks. The second line consists of N space-separated integers - req[1], req[2].....
+req[N] representing the request time of the tasks. The third line consists of N
+space-seperated integers - dur[1], dur[2]...... dur[N] representing the duration of the
+tasks.
+
+Output
+Print a real number representing the average task waiting time, which is calculated
+using non-preemptive SJF scheduling. Print the output upto two decimal places only.
+
+Constraints
+0s req[i] <100
+0< dur[i] <100
+06142
+
+Note
+The request times and duration times are sorted in ascending order of request time.
+
+----------------------------------------
+中文翻译
+----------------------------------------
+
+题目描述：
+按照非抢占式最短作业优先（SJF）调度任务。
+每个任务有请求时间和执行时长，系统每次选择当前可执行且时长最短的任务。
+如果时长相同，则选择请求时间更早的任务。
+请计算所有任务的平均等待时间，并保留两位小数。
+
+输入：
+第一行是任务数量 N。
+第二行是各任务的请求时间。
+第三行是各任务的执行时长。
+
+输出：
+输出平均等待时间。

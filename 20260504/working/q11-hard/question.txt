@@ -1,0 +1,85 @@
+Shortest Job First (SJF) is a system for scheduling task requests.
+
+Each task request is characterized by:
+
+- its request time, that is, the time at which the task is submitted
+  to the system
+- its duration, that is, the time needed to complete the task
+
+When the SJF system completes a task, it selects the task with the
+smallest duration to execute next.
+
+If multiple tasks have the same smallest duration, SJF selects the task
+with the earliest request time.
+
+The waiting time for a task is the difference between the request time
+and the actual start time, that is, the time it spends waiting for the
+system to execute it.
+
+You may assume that the tasks arrive in such frequency that the system
+executes tasks constantly and is never idle.
+
+Given a list of request times and duration times, calculate the average
+task waiting time when scheduled using the Shortest Job First (SJF)
+algorithm.
+
+Input
+
+1. The first line of input consists of a positive integer `req_size`,
+   representing the number of tasks (`N`).
+
+2. The second line consists of `N` space-separated integers:
+   `req[1], req[2], ... , req[N]`, representing the request time of the
+   tasks.
+
+3. The third line consists of a positive integer `dur_size`,
+   representing the number of tasks (`M`).
+
+4. The last line consists of `M` space-separated integers:
+   `dur[1], dur[2], ... , dur[M]`, representing the duration time of
+   the tasks.
+
+Note:
+The original source file was truncated at the end. The fourth input
+line above is reconstructed from the visible text and the standard
+statement pattern of the problem.
+
+Chinese Translation
+
+最短作业优先（SJF, Shortest Job First）是一种任务调度方式。
+
+每个任务由两个属性描述：
+
+- 请求时间：任务提交到系统中的时间
+- 持续时间：完成该任务所需要的时间
+
+当 SJF 系统完成一个任务后，会从当前可执行的任务中选择持续时间最短
+的任务作为下一个执行对象。
+
+如果有多个任务的持续时间相同且都最短，则选择请求时间更早的那个任务。
+
+某个任务的等待时间，等于它的实际开始执行时间减去它的请求时间，也就是
+它在系统中等待被执行的时间。
+
+你可以假设任务到达的频率足够高，因此系统会持续执行任务，不会出现空闲。
+
+给定任务的请求时间数组和持续时间数组，请计算按照最短作业优先（SJF）
+算法调度时，所有任务的平均等待时间。
+
+输入
+
+1. 第一行输入一个正整数 `req_size`，表示任务数量 `N`。
+
+2. 第二行输入 `N` 个空格分隔的整数：
+   `req[1], req[2], ... , req[N]`，表示每个任务的请求时间。
+
+3. 第三行输入一个正整数 `dur_size`，表示任务数量 `M`。
+
+4. 最后一行输入 `M` 个空格分隔的整数：
+   `dur[1], dur[2], ... , dur[M]`，表示每个任务的持续时间。
+
+说明
+
+原始文件在最后一行被截断了；上面的第 4 条输入说明，是根据现有英文内容
+和题目常见格式进行的可靠还原。若你手头有题目原图或完整页面，建议再核对
+一次。 

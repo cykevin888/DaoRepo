@@ -1,0 +1,88 @@
+
+Problem Statement:
+A university has invited N alumni to a dinner.
+The dinner table is circular.
+Each alumnus has an invitation ID from 1 to N.
+
+Each alumnus likes exactly one other alumnus and
+will attend only if they can sit next to that person.
+
+Find the maximum number of alumni who can attend
+the dinner under these conditions.
+
+Input:
+The first line contains an integer personid_size,
+representing the number of alumni (N).
+The second line contains N space-separated integers,
+where the i-th integer is the ID of the person
+liked by alumnus i.
+
+Output:
+Print an integer representing the maximum number
+of alumni who can attend the dinner.
+
+Note:
+One alumnus can be liked by multiple alumni.
+
+Constraints:
+The OCR text appears partially corrupted.
+Likely intent: 1 <= N <= 10^5 and liked IDs are in [1, N].
+Please verify exact constraints from the official source.
+
+Example:
+Input:
+4
+2 3 4 1
+
+Output:
+4
+
+Explanation:
+1st alumnus likes ID 2
+2nd alumnus likes ID 3
+3rd alumnus likes ID 4
+4th alumnus likes ID 1
+
+All 4 alumni can be seated around the circular table.
+
+----------------------------------------
+中文翻译
+----------------------------------------
+
+题目描述：
+某大学邀请了 N 位校友参加晚宴，餐桌是圆形的。
+每位校友的编号为 1 到 N。
+
+每位校友恰好喜欢一位其他校友，
+并且只有当他/她能够坐在该校友旁边时才会出席。
+
+请你计算最多有多少位校友可以出席晚宴。
+
+输入：
+第一行输入整数 `personid_size`，表示校友人数 N。
+第二行输入 N 个空格分隔的整数，
+第 i 个整数表示第 i 位校友喜欢的人的编号。
+
+输出：
+输出一个整数，表示最多可出席的校友人数。
+
+说明：
+一个校友可能会被多位校友喜欢。
+
+约束：
+原 OCR 文本在约束处有损坏，
+大概率为 `1 <= N <= 10^5` 且喜欢编号在 `[1, N]`。
+请以平台官方题面为准。
+
+示例：
+输入：
+4
+2 3 4 1
+
+输出：
+4
+
+解释：
+第 1 位喜欢 2，第 2 位喜欢 3，
+第 3 位喜欢 4，第 4 位喜欢 1。
+因此最多 4 人都可以围坐在圆桌旁。

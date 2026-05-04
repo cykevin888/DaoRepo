@@ -1,0 +1,43 @@
+Question
+The current selected programming language is Java. We emphasize the submission of a
+fully working code over partially correct but efficient code. Once submitted, you cannot
+review this problem again. You can use System.out.printing) to debug your code. The
+System.out.println() may not work in case of syntax/runtime error. The version of JDK
+being used is 1.8. Note: The main class name must be "Solution". Write an algorithm to
+find the number of occurrences of needle in a given positive number haystack.
+
+Input
+The first line of the input consists of an integer needle, representing a digit. The
+second line consists of an integer haystack, representing the positive number.
+
+Output
+Print an integer representing the number of occurrences of needle in haystack.
+
+Constraints
+0 ≤ needle≤9 0s haystacks 99999999
+
+Example
+
+Input:
+2
+123228
+
+Output:
+3
+
+Explanation:
+needle 2 occurs 3 times in the haystack.
+
+----------------------------------------
+中文翻译
+----------------------------------------
+
+题目描述：
+给定一个数字 needle 和一个正整数 haystack，统计 haystack 中数字 needle 出现的次数。
+
+输入：
+第一行是数字 needle。
+第二行是正整数 haystack。
+
+输出：
+输出 needle 在 haystack 中出现的次数。

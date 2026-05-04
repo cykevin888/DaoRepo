@@ -1,0 +1,65 @@
+Question
+The current selected programming language is Python3.12. We emphasize the submission of
+a fully working code over partially correct but efficient code. Once submitted, you
+cannot review this problem again. You can use print to debug your code. The print may
+not work in case of syntax/runtime error. The version of Python3.12 being used is 3.12.
+In a state, N'cities with unique city codes from 1 to N are connected by N-1 roads. The
+road network is in the form of a tree of which each road connects two cities. A path is
+a road, or a combination of roads, connecting any two cities. Each road has a toll booth
+that collects a toll equal to the maximum number of paths of which that particular road
+is part. The state transportation authority wishes to identify the road on which the
+maximum toll revenue is collected. Write an algorithm to help the transportation
+authority identify the pair of cities connected by the road on which the maximum toll
+revenue is collected. The output should be sorted in increasing order. If more than one
+road collects the same total revenue, then output the pair of cities that have the
+smaller city code.
+
+Input
+The first line of the input consists of two space-separated integers-N and R
+representing the number of cities in the state and the number of roads, respectively.
+The next R lines consist of two space-separated integers city1 and city2, representing
+the cities connected by a road.
+
+Output
+Print two space-separated sorted integers representing the cities connected by the road
+on which the maximum toll revenue is collected. If two or more toll booths collect the
+same total revenue, then print the pair of cities with lexicographically smaller codes.
+
+Constraints
+28 N≤ 105
+R-N-1
+1s city1, city2s. N
+
+Note
+There is only one path between any two cities. One city can be connected to at most 10
+other cities.
+
+Example
+
+Input:
+43
+12
+23
+34
+Output: 23
+
+Explanation:
+Road (2,3) lies between the pairs of cities: (1,3)(1,4),(2,3),(2,4). So, the maximum
+toll collected by the road connecting cities 2 and 3-4.
+
+----------------------------------------
+中文翻译
+----------------------------------------
+
+题目描述：
+一个州的城市通过 N-1 条道路构成一棵树。
+一条道路的收费与“经过这条路的不同城市对路径数量”成正比。
+请找出产生最大收费的那条道路，并输出它连接的两个城市编号。
+如果有多条道路并列最大，输出字典序更小的那一对。
+
+输入：
+第一行给出城市数 N 和道路数 R。
+接下来 R 行每行给出一条道路连接的两个城市。
+
+输出：
+输出两个升序排列的城市编号。

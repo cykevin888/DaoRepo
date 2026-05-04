@@ -1,0 +1,47 @@
+Question
+当前选择的编程语言是Java 11。要求提交完全有效的代码,而不是部分正确而有效的代码。一旦提
+交,便无法再检查该题。可使用system.out.printin调试代码。在有语法/运行时错误时, system.out.println(JETE. PJava
+1111.0.2. Charlie has a magic mirror that shows the right-rotated versions of a given
+word. To generate different right rotations of a word, the word is written in a circle
+in a clockwise order and read it starting from any given character in a clockwise order
+until all the characters are covered. For example, in the word "sample", if we start
+with 'p', we get the right rotated word as "plesam". Write an algorithm to output 1 if
+the word1 is a right rotation of word2 otherwise output -1.
+
+Input
+The first line of the input consists of a string word1, representing the first word. The
+second line consists of a string word2, representing the second word.
+
+Output
+Print 1 if the word1 is a right rotation of word2 otherwise print-1.
+
+Note
+Both word1 and word2 contain only lowercase letters between a-z.
+
+Example
+
+Input:
+sample
+plesam
+
+Output:
+
+Explanation:
+For the word "sample", if we start with "p", we get the right-rotated word as "plesam".
+There are six such right rotations of "sample", including the original word. So, the
+output is 1.
+
+----------------------------------------
+中文翻译
+----------------------------------------
+
+题目描述：
+给定两个字符串 word1 和 word2，判断 word1 是否是 word2 的右旋转结果。
+如果是，输出 1；否则输出 -1。
+
+输入：
+第一行是字符串 word1。
+第二行是字符串 word2。
+
+输出：
+输出 1 或 -1。

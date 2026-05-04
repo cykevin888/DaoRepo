@@ -1,0 +1,64 @@
+Question
+3
+code over partially correct but efficient code. Once submitted, you cannot review this
+problem again. You can use System.out.println() to debug your code. The
+System.out.println() may not work in case of syntax/runtime error. The version of JDK
+being used is 1.8. Note: The main class name must be "Solution". Ethan is the leader of
+a team with N members. He has assigned an error score to each member in his team based
+on the bugs that he has found in that particular team member's task. Because the error
+score has increased to a significantly large value, he wants to give all the team
+members a chance to improve their error scores, thereby improving their reputation in
+the organization. He introduces a new rule that whenever a team member completes a
+project successfully, the error score of that member decreases by a count P and the
+error score of all the other team members whose score is greater than zero decreases by
+a count Q. Write an algorithm to help Ethan find the minimum number of projects that the
+team must complete in order to make the error score of all the team members zero.
+
+Input
+The first line of the input consists of an integer- errorScore_size, representing the
+total number of team members (N). The second line consists of N space-separated
+integers- errorScore, representing the initial error scores of the team members. The
+third line consists of an integer- compP, representing the count by which the error
+score of the team member who completes a project successfully decreases (P). The last
+line consists of an integer- othQ, representing the count by which the error score of
+the team member whose error score is greater than zero decreases (Q).
+
+Output
+Print an integer representing the minimum number of projects that the team must complete
+in order to make the error score of all the team members zero. If no project need to be
+completed then print
+0.
+
+Constraints
+1 s errorScore_sizes 2*105 1s othQs compPs 109 Os errorScores 109
+
+Note
+The error score of any team member can never be less than zero.
+
+Example
+
+Input:
+3
+641
+4
+1
+Output: 3
+
+----------------------------------------
+中文翻译
+----------------------------------------
+
+题目描述：
+团队有 N 名成员，每个人有一个错误分数。
+每完成一个项目，负责该项目的成员错误分数减少 P，
+其余错误分数大于 0 的成员都减少 Q，且分数不会降到 0 以下。
+请计算至少需要完成多少个项目，才能使所有成员的错误分数都变为 0。
+
+输入：
+第一行是成员数量 N。
+第二行是各成员初始错误分数。
+第三行是 P。
+第四行是 Q。
+
+输出：
+输出最少需要完成的项目数。

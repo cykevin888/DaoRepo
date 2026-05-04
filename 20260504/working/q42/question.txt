@@ -1,0 +1,55 @@
+Question
+
+Input
+The first line of the input consists of an integer - N, representing the total number of
+apples that Josh wants to buy. The second line consists of two space- separated positive
+integers - M1 and P1. representing the number of apples in a lot and the lot's price at
+shop A. respectively. The third line consists of two space- separated positive integers
+- M2 and P2, representing the number of apples in a lot and the lot's price at shop B.
+respectively.
+
+Output
+Print a positive integer representing the minimum price at which Josh can buy the
+apples.
+
+Constraints
+0 N, P1, P2
+1 s M1, M2
+
+Note
+There will always be at least one
+solution.
+There is only one lot size for a particular shop. There is an unlimited supply of apples
+for both the shops.
+
+Example
+
+Input:
+19
+310 4 15
+
+Output:
+65
+
+Explanation:
+Josh can buy five lots from the first shop and one lot from the second shop
+(5*10+15).
+
+----------------------------------------
+中文翻译
+----------------------------------------
+
+题目描述：
+Josh 要购买恰好 N 个苹果。
+商店 A 只按每 lot 为 M1 个苹果、价格 P1 出售；
+商店 B 只按每 lot 为 M2 个苹果、价格 P2 出售。
+两家商店苹果数量无限，保证至少存在一种购买方案。
+请计算买到恰好 N 个苹果的最小花费。
+
+输入：
+第一行是目标苹果数 N。
+第二行是商店 A 的 lot 大小 M1 和价格 P1。
+第三行是商店 B 的 lot 大小 M2 和价格 P2。
+
+输出：
+输出最小总价格。

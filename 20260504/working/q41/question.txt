@@ -1,0 +1,66 @@
+Question
+当前选择的编程语言是java。注意要提交完全正确的代码,而不是部分正确但有效的代码。提交后,便无法再检查该题。可以使 用 System.out.println()
+调试代码。出现语法/运行时错误时,System.out.println()可能不起作用。使用的JDK版本是1.8 John misses his bus and has to
+walk all his way from home to school. The distance between his school and home is D
+units. He starts his journey with an initial energy of K units. His energy decreases by
+1 unit for every unit of distance walked. On his way to school, there are N juice
+stalls. Each stall has a specific amount of juice in liters. His energy increases by 1
+unit for every liter of juice he consumes. Note that in order to keep him walking he
+should have non-zero energy. Write an algorithm to help John figure out the minimum
+number of juice stalls at which he should stop to successfully reach the school. In case
+he can't reach the school, the output will be -1.
+
+Input
+The first line of the input consists of an integer N, representing the number of juice
+stalls. The second line consists of N space-separated integers - dist,, dist... dist,
+representing the distance of the ith stall from John's home. The third line consists of
+N space-separated integers - lit, lit, lity representing the liters of juice available
+at the ith stall. The last line consists of two space-separated integers - Dand
+Krepresenting the distance of the school from John's home and his initial energy,
+respectively.
+
+Output
+Print an integer representing the minimum number of juice stalls at which John should
+stop to reach the school successfully
+
+Constraints
+1sNs 104
+1 s dist, <Ds 105
+1s lit,s 1000
+1sis N
+Os Ks105
+
+Example Input:
+4
+57810
+2315
+155
+
+Output:
+3
+
+Explanation:
+John's initial energy is 5 units, with which he can reach the first stall. At this
+point, his energy is zero units. He can get 2 units of energy from this stall. With 2
+units of energy, he can move a further 2 units of distance to reach the second stall.
+Here his energy is zero again. He can get 3 units of energy from this stall. 5°C
+多云
+
+----------------------------------------
+中文翻译
+----------------------------------------
+
+题目描述：
+John 需要从家走到学校，总距离为 D，初始体力为 K。
+每走 1 单位距离消耗 1 点体力；途中有 N 个果汁摊，每个摊位可以补充一定体力。
+要求在体力始终保持可继续前进的前提下，求最少需要停靠多少个摊位。
+如果无法到达学校，输出 -1。
+
+输入：
+第一行是摊位数量 N。
+第二行是各摊位距离家的位置。
+第三行是各摊位可提供的果汁升数。
+最后一行给出学校距离 D 和初始体力 K。
+
+输出：
+输出最少停靠的摊位数，无法到达则输出 -1。

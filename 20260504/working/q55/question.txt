@@ -1,0 +1,44 @@
+A company is planning a big sale at which they will give their customers a special
+promotional discount. Each customer that purchases a product from the company has a
+unique customerID numbered from 0 to N-1. Andy, the marketing head of the company, has
+selected bill amounts of the N customers for the promotional scheme. The discount will
+be given to the customers whose bill amounts are perfect squares. The customers may use
+this discount on a future purchase. Write an algorithm to help Andy find the number of
+customers that will be given discounts.
+
+Input
+The first line of the input consists of an integer numofCust, representing the number of
+customers whose bills are selected for the promotional discount (N).
+N-1
+The second line consists of N space-separated integers - bill, bill, bill representing
+the bill amounts of the N customers selected for the promotional discount.
+
+Output
+Print an integer representing the number of customers that will be given discounts.
+
+Constraints
+0s numOfCust≤ 106 0≤ bill ≤ 106
+0<i<numOfCust
+
+Example
+
+Input:
+6
+25 77 54 81 48 34
+Output: 2
+
+----------------------------------------
+中文翻译
+----------------------------------------
+
+题目描述：
+给定 N 位顾客的账单金额。
+如果某位顾客的账单金额是完全平方数，则该顾客可以获得促销折扣。
+请统计共有多少位顾客能获得折扣。
+
+输入：
+第一行是顾客数量 N。
+第二行是 N 个账单金额。
+
+输出：
+输出账单金额为完全平方数的顾客数量。

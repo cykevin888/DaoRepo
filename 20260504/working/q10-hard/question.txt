@@ -1,0 +1,180 @@
+In an organization, `N` employees with employee IDs from `1` to `N`
+work in different teams. Each employee is assigned an integer `X`
+representing the employee's efficiency.
+
+The sum of efficiencies of all employees indicates the reputation of
+the organization.
+
+Edwin is appointed manager of the organization for `Q` days. Edwin,
+being short-tempered, fires one employee each day. Because the team
+members have a close relationship, `K` colleagues of the fired employee
+resign in protest.
+
+These `K` colleagues are the remaining team members with the least
+efficiency.
+
+Kevin is the head of the database management system and has to update
+the reputation of the organization at the end of each day. Write an
+algorithm to determine the reputation of the organization at the end of
+each day for `Q` days.
+
+Input
+
+1. The first line contains an integer `num`, representing the number of
+   employees in the efficiency list. (`num` is always equal to the
+   given number of employees `N`.)
+
+2. The second line contains `N` space-separated integers:
+   `eff0 eff1 ... effN-1`, representing the efficiencies of the
+   employees.
+
+3. The third line contains an integer `numT`, representing the number
+   of employees with a team ID. (`numT` is always equal to the given
+   number of employees `N`.)
+
+4. The fourth line contains `N` space-separated integers:
+   `idE0 idE1 ... idE[N-1]`, representing the team ID of each employee.
+
+5. The fifth line contains two space-separated integers:
+   `numDays` and `numE`, representing:
+   - the number of days for which Edwin is manager (`Q`)
+   - the number of elements in each of the next `Q` lines
+   (`numE` / `P` is always equal to `2`)
+
+6. The last `Q` lines each contain two space-separated integers:
+   `idFire` and `numResign`, representing:
+   - the ID of the employee fired on that day
+   - the number of employees who resign along with the fired employee
+     (`K`)
+
+Output
+
+Print `Q` space-separated integers representing the reputation of the
+organization at the end of each day.
+
+Constraints
+
+The original OCR text of this part is unclear. The recoverable content
+is:
+
+- `num = numT`
+- `1 <= numDays <= num`
+- `1 <= idFire <= num`
+- `0 <= numResign <= c`, where `c` is the number of employees in the
+  team on the current day
+- `1 <= idE0, idE1, ...`
+
+The following lines in the source appear truncated / ambiguous:
+
+- `1s nums 10`
+- `-10 s eff0, eff1, ... effN-1 <= 10^9`
+- `... idE[N-1] ... numT`
+
+Note
+
+The ID of a fired employee cannot be the ID of a person who has already
+resigned.
+
+Example
+
+Input:
+5
+1 2 3 4 5
+5
+1 2 1 1 2
+2 2
+3 2
+2 0
+
+Output:
+7 5
+
+Explanation:
+There are two teams (IDs `1` and `2`).
+
+The initial reputation of the organization is:
+`1 + 2 + 3 + 4 + 5 = 15`
+
+At the end of day 1, employee `3` is fired. Employee `1` and employee
+`4` resign. The revised reputation is:
+`7 = 15 - 3 - 1 - 4`
+
+At the end of day 2, employee `2` is fired but nobody resigns. The
+revised reputation is:
+`5 = 7 - 2`
+
+Chinese Translation
+
+
+在一个组织中，有 `N` 名员工，员工编号从 `1` 到 `N`，他们分属于不同
+的团队。每名员工都有一个整数 `X`，表示该员工的效率值。
+
+所有员工效率值之和表示这个组织的声誉值。
+
+Edwin 被任命为该组织连续 `Q` 天的经理。由于 Edwin 脾气暴躁，他每天都会
+开除一名员工。由于团队成员之间关系紧密，被开除员工所在团队中还有 `K`
+名同事会愤而辞职。
+
+这 `K` 名辞职员工，是该团队中在当天仍然留下的成员里效率值最低的 `K`
+个人。
+
+Kevin 负责数据库管理系统，他需要在每天结束时更新组织的声誉值。请设计算法，
+求出连续 `Q` 天中每天结束后的组织声誉值。
+
+输入
+
+1. 第一行输入一个整数 `num`，表示效率数组中的员工数量。
+   `num` 恒等于员工总数 `N`。
+
+2. 第二行输入 `N` 个空格分隔的整数：
+   `eff0 eff1 ... effN-1`，表示每名员工的效率值。
+
+3. 第三行输入一个整数 `numT`，表示拥有团队编号的员工数量。
+   `numT` 恒等于员工总数 `N`。
+
+4. 第四行输入 `N` 个空格分隔的整数：
+   `idE0 idE1 ... idE[N-1]`，表示每名员工所属的团队编号。
+
+5. 第五行输入两个空格分隔的整数 `numDays` 和 `numE`，分别表示：
+   - Edwin 担任经理的天数 `Q`
+   - 接下来每一行包含的元素个数
+     （`numE` / `P` 恒为 `2`）
+
+6. 接下来的 `Q` 行中，每行包含两个空格分隔的整数：
+   `idFire` 和 `numResign`，分别表示：
+   - 当天被开除的员工编号
+   - 与其一同辞职的员工数量 `K`
+
+输出
+
+输出 `Q` 个以空格分隔的整数，表示每天结束时组织的声誉值。
+
+约束
+
+原始文本的这一部分存在 OCR 识别不清的问题，目前可以较可靠地整理出：
+
+- `num = numT`
+- `1 <= numDays <= num`
+- `1 <= idFire <= num`
+- `0 <= numResign <= c`，其中 `c` 表示当天该团队中的员工数量
+
+其余部分在原文中存在截断或识别错误，建议以题目原始页面为准。
+
+补充说明
+
+某个已被开除或已经辞职的员工，之后不会再次作为“被开除员工”出现。
+
+样例解释
+
+共有两个团队，团队编号分别为 `1` 和 `2`。
+
+初始声誉值为：
+`1 + 2 + 3 + 4 + 5 = 15`
+
+第 1 天结束时，员工 `3` 被开除；员工 `1` 和员工 `4` 辞职，
+因此新的声誉值为：
+`7 = 15 - 3 - 1 - 4`
+
+第 2 天结束时，员工 `2` 被开除，没有其他人辞职，
+因此新的声誉值为：
+`5 = 7 - 2`

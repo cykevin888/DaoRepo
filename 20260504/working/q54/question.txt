@@ -1,0 +1,59 @@
+Question
+The current selected programming language is Java. We emphasize the submission of a
+fully working code over partially correct but efficient code. Once submitted, you cannot
+review this problem again. You can use System.out.printing) to debug your code. The
+System.out.println() may not work in case of syntax/runtime error. The version of JDK
+being used is 1.8. Note: The main class name must be "Solution" The city authorities
+conduct a study of the houses in a residential area for a city planning scheme. The area
+is depicted in an aerial view and divided into an N x M grid. If a grid cell contains
+some part of a house roof, then it is assigned the value 1; otherwise, the cell
+represents a vacant plot and is assigned the value 0. Clusters of adjacent grid cells
+with value 1 represent a single house. Diagonally placed grids with value 1 do not
+represent a single house. The area of a house is the number of 1s that it spans. Write
+an algorithm to find the area of the largest house.
+
+Input
+The first line of the input consists of two space-separated integers - rows and cols
+representing the number of rows (N) and the number of columns in the grid (M),
+respectively. The next N lines consist of M space-separated integers representing the
+grid.
+
+Output
+Print an integer representing the area of the largest house.
+
+Constraints
+The elements of the grid consist of Os and 1s only.
+
+Example
+Input.
+55
+00000
+01100
+00000
+00110
+00100
+
+Output:
+3
+
+Explanation:
+The area of the biggest house is 3. So, the output is 3.
+1
+1
+
+----------------------------------------
+中文翻译
+----------------------------------------
+
+题目描述：
+给定一个 N x M 的 0/1 网格。
+值为 1 的格子表示房屋的一部分，相邻（上下左右）且值为 1 的格子属于同一栋房屋，
+对角线相邻不算连通。
+请找出面积最大的房屋，面积定义为该房屋包含的 1 的个数。
+
+输入：
+第一行给出行数 rows 和列数 cols。
+接下来是网格内容。
+
+输出：
+输出最大房屋面积。
